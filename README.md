@@ -6,16 +6,16 @@
 
 **Once skills de agente para el desarrollo PHP de Adobe Commerce, cada regla con su fuente oficial.**
 
-![license](https://img.shields.io/github/license/zeluizr/adobe-commerce-skills?labelColor=005278&color=FFBD38)
-![last commit](https://img.shields.io/github/last-commit/zeluizr/adobe-commerce-skills?labelColor=005278&color=FFBD38)
+![license](https://img.shields.io/github/license/commentemeapp/adobe-commerce-skills?labelColor=005278&color=FFBD38)
+![last commit](https://img.shields.io/github/last-commit/commentemeapp/adobe-commerce-skills?labelColor=005278&color=FFBD38)
 
 ## Instalación
 
 ```bash
-npx skills add zeluizr/adobe-commerce-skills
+npx skills add commentemeapp/adobe-commerce-skills
 ```
 
-Con el CLI de GitHub, `gh skill install zeluizr/adobe-commerce-skills`. `--scope user` las deja disponibles en todos los proyectos.
+Con el CLI de GitHub, `gh skill install commentemeapp/adobe-commerce-skills`. `--scope user` las deja disponibles en todos los proyectos.
 
 ## Uso rápido
 
@@ -49,7 +49,7 @@ Las skills oficiales de Adobe, [adobe/skills](https://github.com/adobe/skills), 
 
 ### Por que no es un plugin de Claude Code
 
-A propósito: instaladas como plugin, las skills ganan el nombre del plugin adelante, y los agentes que las precargan por nombre, como [adobe-commerce-agents](https://github.com/zeluizr/adobe-commerce-agents), dejan de encontrarlas.
+A propósito: instaladas como plugin, las skills ganan el nombre del plugin adelante, y los agentes que las precargan por nombre, como [adobe-commerce-agents](https://github.com/commentemeapp/adobe-commerce-agents), dejan de encontrarlas.
 
 ### De dónde vienen las reglas
 
@@ -82,7 +82,7 @@ Las atribuciones están en [NOTICE](NOTICE).
 Pide Node `>= 20`.
 
 ```bash
-git clone https://github.com/zeluizr/adobe-commerce-skills.git
+git clone https://github.com/commentemeapp/adobe-commerce-skills.git
 cd adobe-commerce-skills
 npm ci
 npm run verificar
@@ -102,10 +102,10 @@ Una regla nueva necesita su página en la documentación oficial: lee la página
 
 ## Contribuir · Licencia
 
-Abre un PR contra `dev` con Conventional Commits; la promoción a `qa` y `main` es merge de la rama entera.
+Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merge de la rama entera `dev` (sin `qa` desde el 30/10/2026).
 
 [MIT](LICENSE). Las fuentes y sus licencias, en [NOTICE](NOTICE).
 
 ---
 
-Hecho por [commente.me](https://commente.me) · hola@commente.me
+Hecho por [commente.me](https://www.commente.me) · hablecon@commente.me
