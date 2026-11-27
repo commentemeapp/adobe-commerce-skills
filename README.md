@@ -1,13 +1,12 @@
-<p align="center">
-  <img src="assets/banner.png" width="100%" alt="adobe-commerce-skills · Once skills para el desarrollo PHP de Adobe Commerce, cada regla con su fuente oficial">
-</p>
+![adobe-commerce-skills · Once skills para el desarrollo PHP de Adobe Commerce, cada regla con su fuente oficial](.github/assets/banner.png)
 
 # adobe-commerce-skills
 
 **Once skills de agente para el desarrollo PHP de Adobe Commerce, cada regla con su fuente oficial.**
 
-![license](https://img.shields.io/github/license/commentemeapp/adobe-commerce-skills?labelColor=005278&color=FFBD38)
-![last commit](https://img.shields.io/github/last-commit/commentemeapp/adobe-commerce-skills?labelColor=005278&color=FFBD38)
+[![licencia](https://badgen.net/github/license/commentemeapp/adobe-commerce-skills?color=005278)](./LICENSE)
+[![último commit](https://badgen.net/github/last-commit/commentemeapp/adobe-commerce-skills/main)](https://github.com/commentemeapp/adobe-commerce-skills/commits/main)
+[![estrellas](https://badgen.net/github/stars/commentemeapp/adobe-commerce-skills)](https://github.com/commentemeapp/adobe-commerce-skills/stargazers)
 
 ## Instalación
 
@@ -106,7 +105,7 @@ npm ci
 npm run verificar
 ```
 
-`scripts/verificar.sh` es el gate, el mismo que corre el CI: JSON válido; el frontmatter de cada skill (`name` igual a la carpeta, kebab-case, prefijo `adobe-commerce-`, `description` de hasta 1024 caracteres, `license` y `compatibility`); las siete secciones; una sección Reference con al menos una fuente y, en la misma línea, el enlace público que corresponde a esa ruta; que **cada ruta citada exista en el commit fijado**; Prettier; `bash -n`, y una búsqueda de rastros (rutas de una máquina, correos personales, nombres de clientes).
+`scripts/verificar.sh` es el gate y corre en tu máquina antes de cada merge (no hay CI en GitHub): JSON válido; el frontmatter de cada skill (`name` igual a la carpeta, kebab-case, prefijo `adobe-commerce-`, `description` de hasta 1024 caracteres, `license` y `compatibility`); las siete secciones; una sección Reference con al menos una fuente y, en la misma línea, el enlace público que corresponde a esa ruta; que **cada ruta citada exista en el commit fijado**; Prettier; `bash -n`, y una búsqueda de rastros (rutas de una máquina, correos personales, nombres de clientes).
 
 Para comprobar las fuentes sin red, contra clones de los cuatro repositorios que contengan el commit fijado:
 
@@ -114,7 +113,7 @@ Para comprobar las fuentes sin red, contra clones de los cuatro repositorios que
 FONTES_DIR=~/fuentes npm run verificar
 ```
 
-Sin `FONTES_DIR`, el gate pregunta a `raw.githubusercontent.com`; sin red, lo informa como "no verificado", nunca como verde (en el CI, es una falla).
+Sin `FONTES_DIR`, el gate pregunta a `raw.githubusercontent.com`; sin red, lo informa como "no verificado", nunca como verde.
 
 Una regla nueva necesita su página en la documentación oficial: lee la página, escribe la regla y cita la página en Reference. Para actualizar una fuente, cambia el commit en [data/fonte.json](data/fonte.json), relee las páginas citadas y corre el gate. Los cambios de cada versión están en [CHANGELOG.md](CHANGELOG.md).
 
@@ -124,6 +123,4 @@ Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merg
 
 [MIT](LICENSE). Las fuentes y sus licencias, en [NOTICE](NOTICE).
 
----
-
-Hecho por [commente.me](https://www.commente.me) · hablecon@commente.me
+_Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
