@@ -4,9 +4,7 @@
 
 **Once skills de agente para el desarrollo PHP de Adobe Commerce, cada regla con su fuente oficial.**
 
-[![licencia](https://badgen.net/github/license/commentemeapp/adobe-commerce-skills?color=005278)](./LICENSE)
-[![último commit](https://badgen.net/github/last-commit/commentemeapp/adobe-commerce-skills/main)](https://github.com/commentemeapp/adobe-commerce-skills/commits/main)
-[![estrellas](https://badgen.net/github/stars/commentemeapp/adobe-commerce-skills)](https://github.com/commentemeapp/adobe-commerce-skills/stargazers)
+Versión 0.1.0 · en desarrollo, sin release publicada. Cambios en [CHANGELOG.md](CHANGELOG.md).
 
 ## Instalación
 
@@ -16,11 +14,29 @@ npx skills add commentemeapp/adobe-commerce-skills
 
 Con el CLI de GitHub, `gh skill install commentemeapp/adobe-commerce-skills`. `--scope user` las deja disponibles en todos los proyectos.
 
-## Uso rápido
+### En cada agente
+
+Las skills siguen el estándar abierto [Agent Skills](https://agentskills.io): el mismo `SKILL.md` sirve en Claude Code, Codex, Cursor, GitHub Copilot y Gemini CLI. `npx skills add` detecta los agentes instalados; con `-a` eliges a cuales va:
+
+```bash
+npx skills add commentemeapp/adobe-commerce-skills -a claude-code -a codex -a cursor -a github-copilot -a gemini-cli
+```
+
+| Agente         | `-a`             | En el proyecto    | Para todos los proyectos (`-g`) |
+| -------------- | ---------------- | ----------------- | ------------------------------- |
+| Claude Code    | `claude-code`    | `.claude/skills/` | `~/.claude/skills/`             |
+| Codex          | `codex`          | `.agents/skills/` | `~/.agents/skills/`             |
+| Cursor         | `cursor`         | `.agents/skills/` | `~/.cursor/skills/`             |
+| GitHub Copilot | `github-copilot` | `.agents/skills/` | `~/.copilot/skills/`            |
+| Gemini CLI     | `gemini-cli`     | `.agents/skills/` | `~/.gemini/skills/`             |
+
+Las rutas son las del [CLI `skills`](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). En todos los agentes la skill entra cuando la tarea coincide con su `description`; para forzar una, nómbrala en el pedido.
+
+## Uso
 
 Instaladas, el agente las carga solo cuando la tarea las pide. Por ejemplo, "agrega un plugin around a `Magento\Checkout\Model\Cart::addProduct`" activa `adobe-commerce-di-and-plugins`, y "crea la tabla `acme_review` con su whitelist" activa `adobe-commerce-db-schema`. Para forzar una, nómbrala en el pedido.
 
-## Que incluye
+### Que incluye
 
 Para Adobe Commerce (Magento Open Source) en la nube (PaaS) o en servidor propio: módulos, inyección de dependencias, eventos, layout y templates, el frontend de Luma, el esquema declarativo, la Web API, la seguridad, el cache, cron y colas, y el deploy.
 
@@ -40,29 +56,9 @@ Para Adobe Commerce (Magento Open Source) en la nube (PaaS) o en servidor propio
 
 La columna Fuentes cuenta las páginas de la documentación que cita la sección Reference de cada skill. Las skills siguen el formato Agent Skills (`skills/<nombre>/SKILL.md`) y la estructura de [vtex/skills](https://github.com/vtex/skills): cuándo aplica y cuándo no, reglas de decisión, restricciones con el porque, como detectarlas y un ejemplo correcto y uno incorrecto, el patrón recomendado, los errores comunes, una lista de revisión y la referencia. Están en inglés, como la documentación de donde salen. Código abierto y sin costo.
 
-## Por que existe
+### Por que existe
 
 Las skills oficiales de Adobe, [adobe/skills](https://github.com/adobe/skills), traen para Adobe Commerce solo las de App Builder (`commerce-app-*`, sobre `aio-commerce-sdk`): extensiones que corren fuera de la tienda. Nada cubría el código PHP que vive dentro de ella: el módulo, el `di.xml`, el layout, los templates, el `db_schema.xml`, el `webapi.xml`, el cache, cron y las colas, el deploy. Este repositorio llena ese hueco y no repite lo de App Builder: para eso, ocupa las oficiales con `npx skills add adobe/skills`.
-
-## Documentación
-
-### En cada agente
-
-Las skills siguen el estándar abierto [Agent Skills](https://agentskills.io): el mismo `SKILL.md` sirve en Claude Code, Codex, Cursor, GitHub Copilot y Gemini CLI. `npx skills add` detecta los agentes instalados; con `-a` eliges a cuales va:
-
-```bash
-npx skills add commentemeapp/adobe-commerce-skills -a claude-code -a codex -a cursor -a github-copilot -a gemini-cli
-```
-
-| Agente         | `-a`             | En el proyecto    | Para todos los proyectos (`-g`) |
-| -------------- | ---------------- | ----------------- | ------------------------------- |
-| Claude Code    | `claude-code`    | `.claude/skills/` | `~/.claude/skills/`             |
-| Codex          | `codex`          | `.agents/skills/` | `~/.agents/skills/`             |
-| Cursor         | `cursor`         | `.agents/skills/` | `~/.cursor/skills/`             |
-| GitHub Copilot | `github-copilot` | `.agents/skills/` | `~/.copilot/skills/`            |
-| Gemini CLI     | `gemini-cli`     | `.agents/skills/` | `~/.gemini/skills/`             |
-
-Las rutas son las del [CLI `skills`](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). En todos los agentes la skill entra cuando la tarea coincide con su `description`; para forzar una, nómbrala en el pedido.
 
 ### Por que no es un plugin de Claude Code
 
@@ -87,14 +83,7 @@ Las reglas:
 
 Las atribuciones están en [NOTICE](NOTICE).
 
-### Pendiente
-
-- **Hyvä.** El tema y sus módulos de compatibilidad no están en la documentación de Adobe Commerce; una skill de Hyvä necesita otra fuente, con su propia licencia.
-- **Adobe Commerce en la nube, la parte propia.** Las herramientas de la nube (`ece-tools`, `.magento.env.yaml`, los hooks de build y deploy) tienen su propia documentación, que no está entre las fuentes. La skill de deploy dice solo lo que las fuentes dicen de la nube.
-- **Page Builder** y el **admin con UI components** (forms y listings) quedan fuera de esta versión: están en las fuentes, pero son temas grandes para otra skill.
-- **Divisiones posibles.** Si crecen, el GraphQL puede salir de `adobe-commerce-webapi`, el JavaScript de `adobe-commerce-frontend-luma` y los indexers de `adobe-commerce-performance-and-cache`, cada uno en una skill propia.
-
-### Desarrollo
+## Desarrollo
 
 Pide Node `>= 20`.
 
@@ -117,10 +106,23 @@ Sin `FONTES_DIR`, el gate pregunta a `raw.githubusercontent.com`; sin red, lo in
 
 Una regla nueva necesita su página en la documentación oficial: lee la página, escribe la regla y cita la página en Reference. Para actualizar una fuente, cambia el commit en [data/fonte.json](data/fonte.json), relee las páginas citadas y corre el gate. Los cambios de cada versión están en [CHANGELOG.md](CHANGELOG.md).
 
-## Contribuir · Licencia
+### Pendiente
+
+- **Hyvä.** El tema y sus módulos de compatibilidad no están en la documentación de Adobe Commerce; una skill de Hyvä necesita otra fuente, con su propia licencia.
+- **Adobe Commerce en la nube, la parte propia.** Las herramientas de la nube (`ece-tools`, `.magento.env.yaml`, los hooks de build y deploy) tienen su propia documentación, que no está entre las fuentes. La skill de deploy dice solo lo que las fuentes dicen de la nube.
+- **Page Builder** y el **admin con UI components** (forms y listings) quedan fuera de esta versión: están en las fuentes, pero son temas grandes para otra skill.
+- **Divisiones posibles.** Si crecen, el GraphQL puede salir de `adobe-commerce-webapi`, el JavaScript de `adobe-commerce-frontend-luma` y los indexers de `adobe-commerce-performance-and-cache`, cada uno en una skill propia.
+
+### Contribuir
 
 Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merge de la rama entera `dev` (sin `qa` desde el 30/10/2026).
 
+## Licencia
+
 [MIT](LICENSE). Las fuentes y sus licencias, en [NOTICE](NOTICE).
+
+Contacto: hablecon@commente.me
+
+---
 
 _Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
